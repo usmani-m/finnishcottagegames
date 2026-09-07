@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finnish Cottage Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #c6e5f6 0%, #fff6e5 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 3px solid #007e41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #007e41;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 126, 65, 0.15);
+            overflow: hidden;
+        }
+
+        .logo-circle img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #007e41;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subheading {
+            font-size: 20px;
+            color: #333;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Two Column Layout */
+        .games-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .games-column {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 126, 65, 0.1);
+        }
+
+        .column-heading {
+            font-size: 24px;
+            color: #007e41;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #007e41;
+        }
+
+        .time-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .game-list {
+            list-style: none;
+        }
+
+        .game-item {
+            margin-bottom: 15px;
+        }
+
+        .game-link {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #c6e5f6, #fff6e5);
+            color: #007e41;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .game-link:hover {
+            background: linear-gradient(135deg, #fff6e5, #c6e5f6);
+            border-color: #007e41;
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 126, 65, 0.2);
+        }
+
+        .game-link:active {
+            transform: translateX(3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .games-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .logo-section {
+                gap: 20px;
+            }
+
+            .logo-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .games-column {
+                padding: 20px;
+            }
+
+            .column-heading {
+                font-size: 20px;
+            }
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            text-align: center;
+            margin: 60px 0 40px 0;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0, 126, 65, 0.1);
+        }
+
+        .instagram-section h3 {
+            font-size: 28px;
+            color: #007e41;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .instagram-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #c6e5f6, #fff6e5);
+            color: #007e41;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .instagram-link:hover {
+            background: linear-gradient(135deg, #fff6e5, #c6e5f6);
+            border-color: #007e41;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 126, 65, 0.2);
+        }
+
+        .insta-icon {
+            font-size: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .instagram-section {
+                padding: 20px;
+            }
+
+            .instagram-section h3 {
+                font-size: 22px;
+            }
+
+            .instagram-links {
+                gap: 15px;
+            }
+
+            .instagram-link {
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            background-color: #007e41;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .close {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .close:hover {
+            transform: scale(1.2);
+        }
+
+        .pdf-container {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                height: 90vh;
+                margin: 10% auto;
+            }
+
+            .modal-header h2 {
+                font-size: 18px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-circle"><img src="1.png" alt="Logo 1"></div>
+            <div class="logo-circle"><img src="2.png" alt="Logo 2"></div>
+            <div class="logo-circle"><img src="3(2).png" alt="Logo 3"></div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>Finnish Cottage Games</h1>
+            <p class="subheading">Games description</p>
+        </div>
+
+        <!-- Games Columns -->
+        <div class="games-container">
+            <!-- Non-drinking Games -->
+            <div class="games-column">
+                <h2 class="column-heading">Non-drinking games</h2>
+                <p class="time-info">15:00 - 21:00</p>
+                <ul class="game-list">
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('molkky', '1. Mölkky')">1. Mölkky</button>
+                    </li>
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('kymmenen', '2. Kymmenen tikkua laudalla / 10 Sticks on the Board')">2. Kymmenen tikkua laudalla / 10 Sticks on the Board</button>
+                    </li>
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('tar', '3. Tervapata / Tar pot')">3. Tervapata / Tar pot</button>
+                    </li>
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('pallo', '4. Polttopallo / Dodge ball')">4. Polttopallo / Dodge ball</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Drinking Games -->
+            <div class="games-column">
+                <h2 class="column-heading">Drinking Games</h2>
+                <p class="time-info">18:00 - 21:00</p>
+                <ul class="game-list">
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('beerpong', '1. Beer Pong')">1. Beer Pong</button>
+                    </li>
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('flipcup', '2. Flip the Cup')">2. Flip the Cup</button>
+                    </li>
+                    <li class="game-item">
+                        <button class="game-link" onclick="openPDF('flynkke', '3. Flynkke')">3. Flynkke</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Instagram Section -->
+        <div class="instagram-section">
+            <h3>Follow Us</h3>
+            <div class="instagram-links">
+                <a href="https://instagram.com/" class="instagram-link" target="_blank">
+                    <span class="insta-icon">📷</span>
+                    <span class="insta-name">Instagram Channel 1</span>
+                </a>
+                <a href="https://instagram.com/" class="instagram-link" target="_blank">
+                    <span class="insta-icon">📷</span>
+                    <span class="insta-name">Instagram Channel 2</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Finnish Cottage Games</p>
+        </div>
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Game Rules</h2>
+                <button class="close" onclick="closePDF()">&times;</button>
+            </div>
+            <div class="pdf-container">
+                <iframe id="pdfViewer"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // PDF mapping
+        const pdfLinks = {
+            'molkky': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/M%C3%B6lkky.pdf',
+            'kymmenen': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/kymmenen.pdf',
+            'tar': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/tar.pdf',
+            'pallo': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/pallo.pdf',
+            'beerpong': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/Beer%20Pong.pdf',
+            'flipcup': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/flip%20the%20cup.pdf',
+            'flynkke': 'https://raw.githubusercontent.com/usmani-m/finnishcottagegames/main/Flynkke.pdf'
+        };
+
+        function openPDF(gameId, gameName) {
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const modalTitle = document.getElementById('modalTitle');
+            
+            modalTitle.textContent = gameName;
+            pdfViewer.src = pdfLinks[gameId];
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePDF() {
+            const modal = document.getElementById('pdfModal');
+            const pdfViewer = document.getElementById('pdfViewer');
+            
+            modal.classList.remove('show');
+            pdfViewer.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('pdfModal');
+            if (event.target == modal) {
+                closePDF();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePDF();
+            }
+        });
+    </script>
+</body>
+</html>
